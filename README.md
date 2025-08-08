@@ -2,9 +2,9 @@
  SkillBridge is a sleek, responsive web platform designed to bridge the gap between students and professionals. Built using HTML, CSS, and JavaScript, it enables users to register as either learners or mentors, get skill-based matches, and connect in meaningful ways to share knowledge and grow together.
 
 # Project Preview 
-  asset/(Preview(Intro).png)
-  asset/(Preview(main).png)
-  asset/(Preview(content).png)
+  ![Landing page Preview](asset/Preview(Intro).png)
+  ![Preview](asset/Preview(main).png)
+  ![Preview](asset/Preview(content).png)
 
 # Overview
 SkillBridge allows users to:
