@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Connect. Learn. Grow.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">SkillBridge</div>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="scrollToSection('features')">Features</button>
+                    <button class="btn btn-primary" onclick="showUserTypeSelection()">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Connect. Learn. Grow.</h1>
+            <p>Bridge the gap between students seeking knowledge and professionals willing to share expertise. Join thousands who are already growing together.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="showUserTypeSelection()">Join as Student</button>
+                <button class="btn btn-secondary" onclick="showUserTypeSelection()">Join as Professional</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- User Type Selection -->
+        <section id="userTypeSelection" class="user-type-section" style="display: none;">
+            <h2 class="section-title">Choose Your Path</h2>
+            <p class="section-subtitle">Select how you'd like to participate in our community</p>
+            
+            <div class="user-type-grid">
+                <div class="user-type-card student-card" onclick="selectUserType('student')">
+                    <div class="card-overlay"></div>
+                    <div class="user-type-icon">🎓</div>
+                    <h3>I'm a Student</h3>
+                    <p>Looking to learn new skills, get mentorship, and advance my career</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Find expert mentors</li>
+                        <li>Learn industry skills</li>
+                        <li>Get career guidance</li>
+                        <li>Join study groups</li>
+                    </ul>
+                </div>
+                
+                <div class="user-type-card professional-card" onclick="selectUserType('professional')">
+                    <div class="card-overlay"></div>
+                    <div class="user-type-icon">💼</div>
+                    <h3>I'm a Professional</h3>
+                    <p>Ready to share my expertise, mentor others, and give back to the community</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Share your expertise</li>
+                        <li>Mentor students</li>
+                        <li>Build your network</li>
+                        <li>Make an impact</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Registration -->
+        <section id="studentRegistration" class="registration-section">
+            <h2 class="section-title">Student Registration</h2>
+            <p class="section-subtitle">Tell us about yourself and what you want to learn</p>
+            
+            <form id="studentForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentEmail">Email</label>
+                        <input type="email" id="studentEmail" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentEducation">Current Education Level</label>
+                        <select id="studentEducation" class="form-control" required>
+                            <option value="">Select your level</option>
+                            <option value="high-school">High School</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="graduate">Graduate</option>
+                            <option value="postgraduate">Postgraduate</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentGoals">Learning Goals</label>
+                        <textarea id="studentGoals" class="form-control" rows="3" placeholder="What do you want to achieve?"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Skills You Want to Learn</label>
+                    <div class="skill-tags" id="studentSkillTags"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Find My Mentors</button>
+            </form>
+            
+            <div id="studentStatusMessage"></div>
+        </section>
+
+        <!-- Professional Registration -->
+        <section id="professionalRegistration" class="registration-section">
+            <h2 class="section-title">Professional Registration</h2>
+            <p class="section-subtitle">Share your expertise and help others grow</p>
+            
+            <form id="professionalForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="professionalName">Full Name</label>
+                        <input type="text" id="professionalName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professionalEmail">Email</label>
+                        <input type="email" id="professionalEmail" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professionalTitle">Job Title</label>
+                        <input type="text" id="professionalTitle" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professionalCompany">Company</label>
+                        <input type="text" id="professionalCompany" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professionalExperience">Years of Experience</label>
+                        <select id="professionalExperience" class="form-control" required>
+                            <option value="">Select experience</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="4-7">4-7 years</option>
+                            <option value="8-12">8-12 years</option>
+                            <option value="13+">13+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professionalBio">Professional Bio</label>
+                        <textarea id="professionalBio" class="form-control" rows="3" placeholder="Tell us about your expertise and what you can teach..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Skills You Can Teach</label>
+                    <div class="skill-tags" id="professionalSkillTags"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Start Mentoring</button>
+            </form>
+            
+            <div id="professionalStatusMessage"></div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="dashboard">
+            <div class="dashboard-header">
+                <h2 class="section-title">Your Matches</h2>
+                <button class="btn btn-secondary" onclick="resetApplication()">Back to Home</button>
+            </div>
+            
+            <div id="matchResults" class="match-grid"></div>
+        </section>
+
+        <!-- Why Choose SkillBridge Section -->
+        <section id="why-choose" class="why-choose-section">
+            <div class="why-choose-overlay"></div>
+            <div class="why-choose-content">
+                <h2 class="section-title">Why Choose SkillBridge?</h2>
+                <p class="section-subtitle">We're revolutionizing the way knowledge is shared and skills are developed</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Accelerated Learning</h3>
+                        <p>Our platform connects you directly with industry experts who can provide personalized guidance, helping you learn faster and more effectively than traditional methods.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Global Network</h3>
+                        <p>Access a diverse community of professionals and students from around the world, expanding your network and exposure to different perspectives.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Precision Matching</h3>
+                        <p>Our advanced algorithm matches you with the perfect mentor or mentee based on your skills, goals, and learning style.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Practical Knowledge</h3>
+                        <p>Learn real-world skills that are immediately applicable, not just theoretical concepts.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Career Growth</h3>
+                        <p>85% of our students report career advancement within 6 months of joining SkillBridge.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Community Support</h3>
+                        <p>Join a supportive community that celebrates your progress and helps you overcome challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2 class="section-title">Our Platform Features</h2>
+            <p class="section-subtitle">Everything you need to connect, learn, and grow professionally</p>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Matching</h3>
+                    <p>Our AI-powered algorithm matches students with the perfect mentors based on skills, goals, and compatibility.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>Structured Learning</h3>
+                    <p>Follow curated learning paths with milestones, resources, and regular check-ins with your mentor.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Community Support</h3>
+                    <p>Join groups, attend events, and connect with peers who share your interests and career goals.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📈</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your learning journey with detailed analytics, skill assessments, and achievement badges.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💬</div>
+                    <h3>1-on-1 Sessions</h3>
+                    <p>Schedule video calls, receive personalized feedback, and get career guidance from industry experts.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Verified Professionals</h3>
+                    <p>All mentors are verified professionals with proven expertise in their respective fields.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Features for Students -->
+        <section class="features-section">
+            <h2 class="section-title">For Students</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Personalized Learning Paths</h3>
+                    <p>Get customized roadmaps based on your career goals and current skill level.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Skill Assessments</h3>
+                    <p>Take regular quizzes and practical tests to measure your progress and identify areas for improvement.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievement System</h3>
+                    <p>Earn badges and certificates as you complete milestones and master new skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Features for Professionals -->
+        <section class="features-section">
+            <h2 class="section-title">For Professionals</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Hosting Workshops</h3>
+                    <p>Organize group sessions, webinars, and workshops to reach multiple students at once.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Impact Analytics</h3>
+                    <p>Track your mentoring impact with detailed reports on student progress and success stories.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Set your availability and choose between free mentoring or paid consulting sessions.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-dark); color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="logo" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">SkillBridge</div>
+                <p style="margin-bottom: 2rem; opacity: 0.8;">Connecting talent with opportunity, one skill at a time.</p>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="#" style="color: white; text-decoration: none;">About</a>
+                    <a href="#" style="color: white; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: white; text-decoration: none;">Terms of Service</a>
+                    <a href="#" style="color: white; text-decoration: none;">Contact</a>
+                </div>
+                <p style="margin-top: 2rem; opacity: 0.6; font-size: 0.9rem;">© 2024 SkillBridge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
